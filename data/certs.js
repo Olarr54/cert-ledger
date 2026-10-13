@@ -1,0 +1,88 @@
+// CompTIA certification catalogue. Exam facts checked on comptia.org on 2026-10-13.
+// `content` names the study content file for that exam, once it's been written.
+window.CERTS = [
+  {
+    id: "tech", name: "CompTIA Tech+", level: "Entry",
+    for: "Total beginners checking IT is for them.",
+    exams: [{ code: "FC0-U71", questions: 70, minutes: 60, pass: "650 / 900", launched: "16 Jul 2024",
+      domains: [["Tech concepts and terminology", 13], ["Infrastructure", 24], ["Applications and software", 18], ["Software development concepts", 13], ["Data and database fundamentals", 13], ["Security", 19]] }],
+    official: "https://www.comptia.org/en-us/certifications/tech/",
+    free: [],
+  },
+  {
+    id: "a", name: "CompTIA A+", level: "Core",
+    for: "First IT support / help desk job. Two exams.",
+    exams: [
+      { code: "220-1201", label: "Core 1", questions: 90, minutes: 90, pass: "675 / 900", launched: "25 Mar 2025", retires: "est. 2028",
+        domains: [["Mobile devices", 13], ["Networking", 23], ["Hardware", 25], ["Virtualization and cloud computing", 11], ["Hardware and network troubleshooting", 28]] },
+      { code: "220-1202", label: "Core 2", questions: 90, minutes: 90, pass: "700 / 900", launched: "25 Mar 2025", retires: "est. 2028",
+        domains: [["Operating systems", 28], ["Security", 28], ["Software troubleshooting", 23], ["Operational procedures", 21]] },
+    ],
+    official: "https://www.comptia.org/en-us/certifications/a/",
+    free: [
+      { label: "Professor Messer: 220-1201 free course", url: "https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/220-1201-training-course/" },
+      { label: "Professor Messer: 220-1202 free course", url: "https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/220-1202-training-course/" },
+    ],
+  },
+  {
+    id: "network", name: "CompTIA Network+", level: "Core",
+    for: "Networking foundations; helpful before or alongside Security+.",
+    exams: [{ code: "N10-009", questions: 90, minutes: 90, pass: "720 / 900", launched: "20 Jun 2024", retires: "est. 2027",
+      domains: [["Networking concepts", 23], ["Network implementation", 20], ["Network operations", 19], ["Network security", 14], ["Network troubleshooting", 24]] }],
+    official: "https://www.comptia.org/en-us/certifications/network/",
+    free: [{ label: "Professor Messer: N10-009 free course", url: "https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/" }],
+  },
+  {
+    id: "security", name: "CompTIA Security+", level: "Core",
+    for: "The baseline for entry-level security roles.",
+    exams: [
+      { code: "SY0-701", label: "V7 (current)", questions: 90, minutes: 90, pass: "750 / 900", launched: "7 Nov 2023", retires: "11 Jun 2027 (English)", content: "SY0-701",
+        domains: [["General Security Concepts", 12], ["Threats, Vulnerabilities, and Mitigations", 22], ["Security Architecture", 18], ["Security Operations", 28], ["Security Program Management and Oversight", 20]] },
+      { code: "SY0-801", label: "V8 (from 17 Nov 2026)", questions: 90, minutes: 90, pass: "750 / 900", launched: "17 Nov 2026 (upcoming)",
+        domains: [["General Security Concepts", 16], ["Threats, Vulnerabilities, and Attacks", 24], ["Security Architecture", 19], ["Security Operations", 27], ["Security Program Management and Oversight", 14]] },
+    ],
+    official: "https://www.comptia.org/en-us/certifications/security/",
+    free: [{ label: "Professor Messer: SY0-701 free course", url: "https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/" }],
+  },
+  {
+    id: "cysa", name: "CompTIA CySA+", level: "Cybersecurity",
+    for: "SOC / security analyst roles, after Security+.",
+    exams: [{ code: "CS0-004", label: "V4", questions: 85, minutes: 165, pass: "750 / 900", launched: "23 Jun 2026",
+      domains: [["Security Operations", 34], ["Vulnerability Management", 26], ["Incident Response and Management", 24], ["Reporting and Communication", 16]] }],
+    note: "CS0-003 (V3) English exam retires 22 Dec 2026.",
+    official: "https://www.comptia.org/en-us/certifications/cybersecurity-analyst/",
+    free: [],
+  },
+  {
+    id: "pentest", name: "CompTIA PenTest+", level: "Cybersecurity",
+    for: "Penetration testing / ethical hacking.",
+    exams: [{ code: "PT0-003", label: "V3", questions: 90, minutes: 165, pass: "750 / 900", launched: "17 Dec 2024", retires: "est. 2027",
+      domains: [["Engagement management", 13], ["Reconnaissance and enumeration", 21], ["Vulnerability discovery and analysis", 17], ["Attacks and exploits", 35], ["Post-exploitation and lateral movement", 14]] }],
+    official: "https://www.comptia.org/en-us/certifications/pentest/",
+    free: [],
+  },
+  {
+    id: "securityx", name: "CompTIA SecurityX", level: "Cybersecurity",
+    for: "Senior security architect / engineer (formerly CASP+).",
+    exams: [{ code: "CAS-005", label: "V5", questions: 90, minutes: 165, pass: "Pass/fail", launched: "17 Dec 2024", retires: "est. 2027",
+      domains: [["Governance, risk, and compliance", 20], ["Security architecture", 27], ["Security engineering", 31], ["Security operations", 22]] }],
+    official: "https://www.comptia.org/en-us/certifications/securityx/",
+    free: [],
+  },
+  {
+    id: "cloud", name: "CompTIA Cloud+", level: "Infrastructure",
+    for: "Cloud operations and engineering.",
+    exams: [{ code: "CV0-004", label: "V4", questions: 90, minutes: 90, pass: "750 / 900", launched: "24 Sep 2024", retires: "est. 2027",
+      domains: [["Cloud architecture", 23], ["Deployment", 19], ["Operations", 17], ["Security", 19], ["DevOps fundamentals", 10], ["Troubleshooting", 12]] }],
+    official: "https://www.comptia.org/en-us/certifications/cloud/",
+    free: [],
+  },
+  {
+    id: "linux", name: "CompTIA Linux+", level: "Infrastructure",
+    for: "Linux system administration.",
+    exams: [{ code: "XK0-006", label: "V8", questions: 90, minutes: 90, pass: "720 / 900", launched: "15 Jul 2025", retires: "est. 2028",
+      domains: [["System Management", 23], ["Services and User Management", 20], ["Security", 18], ["Automation, Orchestration, and Scripting", 17], ["Troubleshooting", 22]] }],
+    official: "https://www.comptia.org/en-us/certifications/linux/",
+    free: [],
+  },
+];

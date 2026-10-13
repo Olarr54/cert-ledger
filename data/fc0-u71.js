@@ -1,0 +1,202 @@
+// CompTIA Tech+ (FC0-U71) study content.
+// Researched from the sources listed on each objective, then rewritten as original notes.
+// Not affiliated with or endorsed by CompTIA. Objectives without a lesson aren't written yet.
+(() => {
+const OBJ_DOC = { label: "CompTIA Tech+ FC0-U71 exam objectives (official document)", url: "https://laurelridgeworkforce.com/wp-content/uploads/2025/01/CompTIA-TechCertification-Exam-Objectives.pdf" };
+
+window.CONTENT = window.CONTENT || {};
+window.CONTENT["FC0-U71"] = {
+  checked: "2026-10-13",
+  objectives: [
+    {
+      id: "1.1",
+      sources: [OBJ_DOC,
+        { label: "Wikipedia: Hexadecimal", url: "https://en.wikipedia.org/wiki/Hexadecimal" },
+        { label: "Wikipedia: Octal", url: "https://en.wikipedia.org/wiki/Octal" }],
+      lesson: {
+        explain: [
+          "A <b>notational system</b> (number base) is a way of writing numbers using a fixed set of digits. The exam names four: binary, decimal, hexadecimal and octal. In every base, each position is worth the base times the position to its right.",
+          "<b>Decimal</b> (base 10) uses 0 to 9. It's what people use. The number 254 means 2×100 + 5×10 + 4×1.",
+          "<b>Binary</b> (base 2) uses only 0 and 1, because computer hardware stores everything as off/on. Each digit is a <b>bit</b>; eight bits make a <b>byte</b>. Position values go 128, 64, 32, 16, 8, 4, 2, 1, so 1010 in binary is 8 + 2 = 10, and 11111111 is 255, the largest value one byte can hold.",
+          "<b>Hexadecimal</b> (base 16) uses 0 to 9 then A to F for 10 to 15. One hex digit is exactly 4 bits, so one byte is always two hex digits (FF = 255). It's a compact way to write binary, which is why you see it in colour codes (#FF0000 is red), memory addresses, IPv6 addresses and MAC addresses. It's often written with a <b>0x</b> prefix (0x1F) or an <b>h</b> suffix (1Fh).",
+          "<b>Octal</b> (base 8) uses 0 to 7. One octal digit is exactly 3 bits. You'll mostly meet it in Linux file permissions, where 755 means three groups of 3 bits (rwx, r-x, r-x).",
+        ],
+        example: "The decimal value 200 in each system: binary 11001000 (128 + 64 + 8), hexadecimal C8 (12×16 + 8), octal 310 (3×64 + 1×8 + 0).",
+        analogy: "Bases are like different currencies for the same amount: £1, 100p and 4 × 25p are all the same value written differently. Only the digits change, not the quantity.",
+        terms: [
+          ["Binary", "Base 2. Digits 0 and 1."],
+          ["Decimal", "Base 10. Digits 0 to 9."],
+          ["Hexadecimal", "Base 16. Digits 0 to 9 and A to F. 4 bits per digit."],
+          ["Octal", "Base 8. Digits 0 to 7. 3 bits per digit."],
+          ["Bit", "One binary digit."],
+          ["Byte", "8 bits. Values 0 to 255."],
+        ],
+        summary: [
+          "Binary 2, octal 8, decimal 10, hexadecimal 16.",
+          "Binary place values: 128, 64, 32, 16, 8, 4, 2, 1.",
+          "One hex digit = 4 bits; one octal digit = 3 bits.",
+          "FF hex = 255 decimal = 11111111 binary.",
+        ],
+      },
+      cards: [
+        { q: "What base is binary?", a: "Base 2 (digits 0 and 1)." },
+        { q: "What base is hexadecimal, and which digits does it use?", a: "Base 16: 0 to 9 and A to F." },
+        { q: "What base is octal?", a: "Base 8 (digits 0 to 7)." },
+        { q: "How many bits does one hex digit represent?", a: "4 bits." },
+        { q: "How many bits does one octal digit represent?", a: "3 bits." },
+        { q: "What is 1010 in binary, in decimal?", a: "10 (8 + 2)." },
+        { q: "What is FF in hex, in decimal?", a: "255." },
+        { q: "What's the largest value one byte can hold?", a: "255 (11111111 in binary)." },
+        { q: "What does hex A stand for in decimal?", a: "10. (B = 11 … F = 15.)" },
+        { q: "Name two places you see hexadecimal.", a: "Colour codes (#FF0000), MAC and IPv6 addresses, memory addresses." },
+        { q: "Where do you commonly see octal?", a: "Linux file permissions, e.g. 755." },
+        { q: "What does the 0x prefix mean?", a: "The number is hexadecimal." },
+      ],
+      quiz: [
+        { q: "Which notational system uses only the digits 0 and 1?", options: ["Decimal", "Binary", "Octal", "Hexadecimal"], answer: 1, why: "Binary is base 2." },
+        { q: "What is the decimal value of binary 1100?", options: ["6", "10", "12", "14"], answer: 2, why: "8 + 4 = 12." },
+        { q: "What is hexadecimal 1F in decimal?", options: ["15", "25", "31", "115"], answer: 2, why: "1×16 + 15 = 31." },
+        { q: "Which system is most often used to write colour codes such as #00FF00?", options: ["Binary", "Octal", "Decimal", "Hexadecimal"], answer: 3, why: "Colour codes are three hex bytes." },
+        { q: "How many hexadecimal digits are needed to write one byte?", options: ["1", "2", "4", "8"], answer: 1, why: "Each hex digit is 4 bits, so 8 bits need 2 digits." },
+        { q: "Which notational system is used for Linux permissions such as 644?", options: ["Octal", "Binary", "Hexadecimal", "Decimal"], answer: 0, why: "Each digit is 3 bits of read/write/execute, which is octal." },
+      ],
+    },
+    {
+      id: "1.2",
+      sources: [OBJ_DOC, { label: "Wikipedia: IPO model", url: "https://en.wikipedia.org/wiki/IPO_model" }],
+      lesson: {
+        explain: [
+          "Every computer, from a smartwatch to a server, does the same four things. The exam lists them as <b>input, processing, output and storage</b> (sometimes called the IPOS cycle).",
+          "<b>Input</b> is data going in: keystrokes, mouse clicks, touches, a microphone, a camera, a barcode scanner or a sensor reading.",
+          "<b>Processing</b> is the work done on that data, mainly by the <b>CPU</b>, which follows program instructions to calculate, compare and decide. RAM holds what the CPU is working on right now, and it's cleared when the power goes off.",
+          "<b>Output</b> is the result coming back out: a screen, a printer, speakers, or data sent across a network.",
+          "<b>Storage</b> keeps data when the power is off: SSDs, hard drives, USB drives, memory cards and cloud storage. Storage can feed input to processing (opening a file) and receive output from it (saving a file).",
+        ],
+        example: "Paying at a self-checkout: scanning a barcode is input, the till looking up the price and adding the total is processing, the screen and receipt are output, and the sale saved to the shop's database is storage.",
+        analogy: "A kitchen: ingredients are input, cooking is processing, the plated meal is output, and the fridge and cupboards are storage.",
+        terms: [
+          ["Input", "Data entering the system (keyboard, mouse, sensors)."],
+          ["Processing", "Acting on the data, mainly by the CPU."],
+          ["Output", "Results leaving the system (screen, printer, speakers)."],
+          ["Storage", "Keeping data when the power is off (SSD, HDD, cloud)."],
+          ["RAM", "Temporary working memory, cleared at power off."],
+        ],
+        summary: [
+          "Input → processing → output, with storage keeping data between uses.",
+          "The CPU processes; RAM is temporary; storage is persistent.",
+          "A touchscreen is both input and output.",
+        ],
+      },
+      cards: [
+        { q: "What are the four basic functions of computing?", a: "Input, processing, output, storage." },
+        { q: "Which component does most of the processing?", a: "The CPU." },
+        { q: "Is a microphone input or output?", a: "Input." },
+        { q: "Is a printer input or output?", a: "Output." },
+        { q: "What's the difference between RAM and storage?", a: "RAM is temporary working memory cleared at power off; storage keeps data without power." },
+        { q: "Name a device that is both input and output.", a: "A touchscreen (also a headset with a microphone)." },
+        { q: "Which function does saving a file to an SSD represent?", a: "Storage." },
+      ],
+      quiz: [
+        { q: "A user types a search into a phone. Which function is the typing?", options: ["Input", "Processing", "Output", "Storage"], answer: 0, why: "Data entering the device is input." },
+        { q: "Which component is mainly responsible for processing?", options: ["SSD", "CPU", "Monitor", "Network card"], answer: 1, why: "The CPU executes instructions." },
+        { q: "Which keeps data after the computer is switched off?", options: ["RAM", "CPU cache", "SSD", "Registers"], answer: 2, why: "Storage such as an SSD is persistent; RAM and caches are cleared." },
+        { q: "A thermostat switching the heating on is an example of:", options: ["Input", "Processing", "Output", "Storage"], answer: 2, why: "Acting on the environment is output. Reading the temperature is input; deciding is processing." },
+        { q: "Which device is both an input and an output device?", options: ["Keyboard", "Speaker", "Touchscreen", "Scanner"], answer: 2, why: "It displays output and accepts touch input." },
+      ],
+    },
+    {
+      id: "1.3",
+      sources: [OBJ_DOC, { label: "NIST: Prefixes for binary multiples", url: "https://physics.nist.gov/cuu/Units/binary.html" }],
+      lesson: {
+        explain: [
+          "<b>Storage units</b> measure how much data there is. A <b>bit</b> is one 0 or 1. A <b>byte</b> is 8 bits, enough for one character of text. Then each step up is about a thousand times bigger: <b>kilobyte (KB)</b>, <b>megabyte (MB)</b>, <b>gigabyte (GB)</b>, <b>terabyte (TB)</b>, <b>petabyte (PB)</b>.",
+          "There's a catch the exam can test. In the SI (decimal) meaning used by storage makers and network speeds, kilo = 1,000, so 1 TB = 1,000,000,000,000 bytes. Operating systems and memory often count in powers of 2 (1,024). The unambiguous names for those are <b>kibibyte (KiB)</b>, <b>mebibyte (MiB)</b> and <b>gibibyte (GiB)</b>. That's why a new \"1 TB\" drive shows as about 931 GB in Windows: same bytes, different counting.",
+          "<b>Throughput units</b> measure speed of data movement and use <b>bits</b> per second, with a lowercase b: <b>bps</b>, <b>Kbps</b>, <b>Mbps</b>, <b>Gbps</b>, <b>Tbps</b>. Network speeds use the decimal meaning (1 Mbps = 1,000,000 bits per second). Watch the b: <b>Mb</b> is megabits, <b>MB</b> is megabytes, and there are 8 bits in a byte. A 100 Mbps connection downloads at most about 12.5 MB per second.",
+          "<b>Processing speed</b> is measured in hertz, cycles per second. <b>Megahertz (MHz)</b> is millions of cycles per second; <b>gigahertz (GHz)</b> is billions. A 3.2 GHz CPU runs 3.2 billion clock cycles a second. Clock speed alone doesn't decide performance; cores and design matter too.",
+        ],
+        example: "Your broadband is 80 Mbps. A 1 GB game update is about 8,000 megabits, so at full speed it takes around 100 seconds (8,000 ÷ 80), before any overhead.",
+        analogy: "Storage units are like volume (litres in a tank); throughput is flow rate (litres per minute through the pipe). Mixing up bits and bytes is like mixing up millilitres and litres.",
+        terms: [
+          ["Bit / byte", "One 0 or 1 / 8 bits."],
+          ["KB, MB, GB, TB, PB", "Each roughly 1,000× the last (decimal)."],
+          ["KiB, MiB, GiB", "Binary units: 1,024× steps."],
+          ["bps, Kbps, Mbps, Gbps, Tbps", "Bits per second (throughput)."],
+          ["MHz / GHz", "Millions / billions of clock cycles per second."],
+        ],
+        summary: [
+          "Storage: bit, byte, KB, MB, GB, TB, PB.",
+          "Throughput uses bits (small b); storage uses bytes (big B). Divide by 8 to convert.",
+          "Decimal (1,000) vs binary (1,024) explains 'missing' drive space.",
+          "CPU speed: MHz and GHz.",
+        ],
+      },
+      cards: [
+        { q: "How many bits are in a byte?", a: "8." },
+        { q: "Put in order, smallest first: TB, KB, PB, GB, MB.", a: "KB, MB, GB, TB, PB." },
+        { q: "Mbps vs MBps?", a: "Mbps is megabits per second; MBps is megabytes per second (8× bigger)." },
+        { q: "Roughly how many MB per second is a 100 Mbps connection?", a: "About 12.5 MB/s (100 ÷ 8)." },
+        { q: "Why does a 1 TB drive show as about 931 GB?", a: "The maker counts 1,000s; the OS counts 1,024s." },
+        { q: "What is a kibibyte?", a: "1,024 bytes (KiB), the unambiguous binary unit." },
+        { q: "What does GHz measure?", a: "Processor clock speed: billions of cycles per second." },
+        { q: "Which unit family is used for network throughput?", a: "Bits per second: bps, Kbps, Mbps, Gbps, Tbps." },
+        { q: "1 GB is roughly how many MB?", a: "1,000 MB (1,024 MiB in binary terms)." },
+      ],
+      quiz: [
+        { q: "Which is the largest unit?", options: ["Terabyte", "Gigabyte", "Petabyte", "Megabyte"], answer: 2, why: "PB > TB > GB > MB." },
+        { q: "An ISP advertises 200 Mbps. What's the most data per second you could download?", options: ["200 MB", "25 MB", "1,600 MB", "2 MB"], answer: 1, why: "200 megabits ÷ 8 = 25 megabytes." },
+        { q: "Which unit describes CPU clock speed?", options: ["Gbps", "GB", "GHz", "TB"], answer: 2, why: "Hertz measures cycles per second." },
+        { q: "A user's new 2 TB drive shows as about 1.8 TB in the OS. Why?", options: ["The drive is faulty", "The OS counts in 1,024s while the maker counts in 1,000s", "Formatting deletes half the space", "Throughput is measured in bits"], answer: 1, why: "Decimal vs binary units; the bytes are the same." },
+        { q: "Which unit is normally used for network throughput?", options: ["Megabytes", "Megabits per second", "Megahertz", "Mebibytes"], answer: 1, why: "Throughput is measured in bits per second." },
+        { q: "How many bits are in 2 bytes?", options: ["2", "8", "16", "1,024"], answer: 2, why: "2 × 8 = 16." },
+      ],
+    },
+    {
+      id: "1.4",
+      sources: [OBJ_DOC, { label: "Professor Messer: Network Troubleshooting Methodology (N10-009)", url: "https://www.professormesser.com/network-plus/n10-009/n10-009-video/network-troubleshooting-methodology-n10-009/" }],
+      lesson: {
+        explain: [
+          "CompTIA uses the same troubleshooting methodology across Tech+, A+ and Network+, and the exam expects the steps <b>in order</b>.",
+          "<b>1. Identify the problem.</b> Gather information: ask the user what they see and <b>what changed</b> (moved cables, an update, a new setting), check logs, and try to duplicate the issue. One problem can have several symptoms.",
+          "<b>2. Establish a theory of probable cause (question the obvious).</b> Start with the simple, quick-to-check causes: is it plugged in, switched on, logged in? <b>Research the knowledge base or internet</b> if applicable.",
+          "<b>3. Test the theory to determine the cause.</b> Swap the cable, try another device, change one thing. If the theory is wrong, form a new one and test again (or escalate).",
+          "<b>4. Establish a plan of action to resolve the problem and implement the solution.</b> Think about what the fix affects, have a fallback and a way to roll back, and make the change at an approved time if it affects others.",
+          "<b>5. Verify full system functionality and, if applicable, implement preventive measures.</b> Have the user confirm it works, then stop it happening again.",
+          "<b>6. Document findings, lessons learned, actions and outcomes</b> in the help desk system or knowledge base, so the next person can fix it faster.",
+        ],
+        example: "A user can't print. You ask what changed: the printer was moved yesterday (identify). The obvious theory: it's unplugged from the network (theory). You check: the cable is loose (test). You reconnect it and print a test page (plan and implement). The user prints successfully and you tidy the cable so it won't be knocked again (verify and prevent). You log it in the ticket (document).",
+        analogy: "It's how a doctor works: ask about symptoms and recent changes, suspect the common cause first, run a test, treat, check you're better, write it in your notes.",
+        terms: [
+          ["Identify the problem", "Gather info, ask what changed, duplicate it."],
+          ["Theory of probable cause", "Start with the obvious; research if needed."],
+          ["Test the theory", "Confirm the cause; if wrong, new theory or escalate."],
+          ["Plan of action", "Plan the fix, consider impact, then implement."],
+          ["Verify", "Confirm full functionality; add preventive measures."],
+          ["Document", "Record findings, actions and outcomes."],
+        ],
+        summary: [
+          "Identify → theory → test → plan and implement → verify → document.",
+          "Always ask what changed. Question the obvious.",
+          "Documentation is the last step, not optional.",
+        ],
+      },
+      cards: [
+        { q: "What is the first step of the troubleshooting methodology?", a: "Identify the problem." },
+        { q: "What is the last step of the troubleshooting methodology?", a: "Document findings, lessons learned, actions and outcomes." },
+        { q: "What should you 'question' when establishing a theory?", a: "The obvious: power, cables, simple settings." },
+        { q: "What do you do if your theory turns out to be wrong?", a: "Establish a new theory and test it, or escalate." },
+        { q: "Which step comes right after testing the theory?", a: "Establish a plan of action and implement the solution." },
+        { q: "What's the most useful question when identifying a problem?", a: "What changed?" },
+        { q: "When do you implement preventive measures?", a: "When verifying full system functionality, after the fix." },
+        { q: "Which step includes researching the knowledge base or internet?", a: "Establish a theory of probable cause." },
+      ],
+      quiz: [
+        { q: "A technician has confirmed the cause of a problem. What's the next step?", options: ["Document findings", "Establish a plan of action and implement the solution", "Identify the problem", "Verify full system functionality"], answer: 1, why: "After testing the theory comes the plan and the fix." },
+        { q: "Which is the final step in the troubleshooting methodology?", options: ["Verify full system functionality", "Implement the solution", "Document findings, actions and outcomes", "Question the obvious"], answer: 2, why: "Documentation comes last." },
+        { q: "A technician's first theory proves wrong. What should they do?", options: ["Document the problem", "Establish a new theory or escalate", "Implement the solution anyway", "Close the ticket"], answer: 1, why: "Return to forming and testing a theory." },
+        { q: "During which step should you ask the user what has changed recently?", options: ["Identify the problem", "Test the theory", "Verify functionality", "Document findings"], answer: 0, why: "Gathering information is part of identifying the problem." },
+        { q: "After fixing a loose cable, the technician secures it so it can't be knocked out again. Which step is this?", options: ["Establish a theory", "Verify full system functionality and implement preventive measures", "Test the theory", "Identify the problem"], answer: 1, why: "Preventive measures are part of verification." },
+      ],
+    },
+  ],
+};
+})();
